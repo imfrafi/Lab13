@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+    <link rel="stylesheet" href="myStyle.css">
+    <script>
+        function getOp(){
+            var Op = document.getElementById( "op" ).value;
+            if( Op=="+" ) document.getElementById("bt").value = "Add";
+            else if( Op=="-" ) document.getElementById("bt").value = "subtract";
+            else if( Op=="*" ) document.getElementById("bt").value = "multiply";
+            else if( Op=="/" ) document.getElementById("bt").value = "divide";
+        }
+        function getValue(){
+            var num1 = document.getElementById( "input1" ).value;
+            var num2 = document.getElementById( "input2" ).value;
+            var num3;
+            var Op = document.getElementById( "op" ).value;
+            if( Op=="+" ) num3 = parseInt(num1)+parseInt(num2);
+            else if( Op=="-" ) num3 = num1-num2;
+            else if( Op=="*" ) num3 = num1*num2;
+            else if( Op=="/" ) num3 = num1/num2;
+            document.getElementById("result").innerHTML = "result = " + num3;
+        }
+    </script>
+</head>
+
+<body>
+    <center class="bg"><br>
+        <h2>JS Calculator</h2>
+        <p>Number 1</p>
+        <input type="text" id="input1" style="width: 350px;">
+        <p>Number 2</p>
+        <input type="text" id="input2" style="width: 350px;">
+        <p>Operate way?</p>
+        <select name="operator" id="op" onchange="getOp()" style="width: 350px; height:22.5px">
+            <option value="+"selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br><br>
+        <input type="button" id="bt" value="Add" class="opButton" style="width: 350px;" onclick="getValue()">
+        <br>
+        <p id="result"></p>
+    </center>
+</body>
+
+</html>
